@@ -4,15 +4,16 @@ package uottawa.coding;
 public class MatrixSpiralPrint {
     private static int[][] arr = 
         {
-            {1,2,3,4,20}, 
-            {5,6,7,8,30}, 
-            {9,10,11,12,40},
-            {13,14,15,16,50},
-            {60,70,80,90,100}
+            {1,2,3,4,20,1}, 
+            {5,6,7,8,30,2}, 
+            {9,10,11,12,40,3},
+            {13,14,15,16,50,4},
+            {60,70,80,90,100,5},
+            {1660,170,180,190,160,5}
         };
     
     public static void main(String[] args) {
-        spiralPrint(arr, 5);
+        spiralPrint(arr, 6);
     }
 
     private static void spiralPrint(int[][] arr2, int n) {
@@ -46,5 +47,8 @@ public class MatrixSpiralPrint {
                 System.out.print(arr[index][col] + " ");
             }
         }
+        
+        if (n%2 != 0) 
+            System.out.print(arr[n/2][n/2]);
     }
 }
