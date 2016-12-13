@@ -286,6 +286,72 @@ public class BinarySearchTree {
 
     }
 
+    public static boolean checkIfMirrored(Node root1, Node root2) {
+        if (root1 == null && root2 == null) {
+            return true;
+        }
+
+        if (root1 == null || root2 == null) {
+            return false;
+        }
+
+        return root1.data == root2.data && 
+                checkIfMirrored(root1.left, root2.right) && 
+                    checkIfMirrored(root1.right, root2.left);
+    }
+    
+    public static boolean checkIfPathExists(Node node, String str) {
+        char ch = str.charAt(0);
+        Integer i = Integer.parseInt(String.valueOf(ch));
+        
+        boolean pathExists = false;
+        Node root = findRootOfPath(node, i);
+        
+        if (root != null) {
+            pathExists = checkIfPathExists(root, str.toCharArray(), 0);
+        }
+        
+        return pathExists;
+    }
+
+    private static boolean checkIfPathExists(Node node, char[] charArray, int index) {
+        boolean checkIfPathExists = false;
+        if (node == null) {
+            checkIfPathExists = index == charArray.length;
+        } else {
+            Integer i = Integer.parseInt(String.valueOf(charArray[index]));
+            if (node.data == i) {
+                index++;
+            }
+            
+            checkIfPathExists = checkIfPathExists(node.left, charArray, index) ||
+                                    checkIfPathExists(node.right, charArray, index);
+        }
+        
+        return checkIfPathExists;
+    }
+
+    private static Node findRootOfPath(Node node, int i) {
+        if (node == null) {
+            return null;
+        }
+        
+        Node finalNode = null;
+        if (node.data == i) {
+            finalNode = node;
+        }
+        
+        if (finalNode == null) {
+            finalNode = findRootOfPath(node.left, i);
+            
+            if (finalNode == null) {
+                finalNode = findRootOfPath(node.right, i);
+            }
+        }
+        
+        return finalNode;
+    }
+
     public static void main(String[] args) throws Exception {
         BinarySearchTree tree = new BinarySearchTree();
         tree.root = new Node(90);
@@ -306,6 +372,41 @@ public class BinarySearchTree {
             Node leastDiffNode = findNextPossibleMatch(tree.root, 81, tree.root);
             System.out.println(leastDiffNode.data);
         }
+        
+        
+        BinarySearchTree tree1 = new BinarySearchTree();
+        tree1.root = new Node(90);
+        tree1.root.left = new Node(50);
+        tree1.root.right = new Node(120);
+        tree1.root.left.left = new Node(30);
+        tree1.root.left.right = new Node(80);
+        tree1.root.right.left = new Node(100);
+        tree1.root.right.right = new Node(130);
+        
+        BinarySearchTree tree2 = new BinarySearchTree();
+        tree2.root = new Node(90);
+        tree2.root.left = new Node(120);
+        tree2.root.right = new Node(50);
+        tree2.root.left.left = new Node(130);
+        tree2.root.left.right = new Node(100);
+        tree2.root.right.right = new Node(30);
+        tree2.root.right.left = new Node(80);
+        
+        System.out.println(checkIfMirrored(tree1.root, tree2.root));
+        System.out.println(checkIfMirrored(tree1.root, tree1.root));
+        System.out.println(checkIfMirrored(tree2.root, tree2.root));
+        
+        BinarySearchTree tree3 = new BinarySearchTree();
+        tree3.root = new Node(1);
+        tree3.root.left = new Node(2);
+        tree3.root.right = new Node(3);
+        tree3.root.left.left = new Node(4);
+        tree3.root.left.right = new Node(5);
+        tree3.root.right.left = new Node(6);
+        tree3.root.right.right = new Node(7);
+        
+        System.out.println(checkIfPathExists(tree3.root, "25"));
+        System.out.println(checkIfPathExists(tree3.root, "136"));
     }
 
 }
