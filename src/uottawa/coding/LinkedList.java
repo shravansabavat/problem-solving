@@ -13,16 +13,29 @@ public class LinkedList {
         list.insertAtLast(1);
         list.insertAtLast(5);
         System.out.println(isPallindrome(list));
-        
-        list.tail.nextlink = list.head;
     }
-    
+
+    public boolean deleteNode(Link link, int num) {
+        Link prev = null;
+        while (link != null) {
+            if (link.data != num) {
+                prev = link;
+                link = link.nextlink;
+            } else {
+                prev.nextlink = link.nextlink;
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     private static boolean doesLoopExists(Link head) {
         Link slow = head, fast = head;
         while (slow != null && fast.nextlink != null) {
-            
+
         }
-        
+
         return false;
     }
 
@@ -41,68 +54,68 @@ public class LinkedList {
         }
         return head == null && reverseHead == null;
     }
-    
+
     public static Link findIntersection(Link link1, Link link2) {
         int link1Length = findSize(link1);
         int link2Length = findSize(link2);
-        
+
         boolean link1Bigger = link1Length > link2Length ? true : false;
         int offset = link1Bigger ? link1Length - link2Length : link2Length - link1Length;
-        
+
         if (offset > 0) {
             if (link1Bigger) {
-                
+
             } else {
-                
+
             }
         }
-        
-        
+
         return null;
     }
-    
+
     public static Link addLists(Link link1, Link link2) {
         return addNumbers(link1, link2, 0);
     }
-    
+
     private static Link addNumbers(Link link1, Link link2, int carry) {
         if (link1 == null && link2 == null && carry == 0) {
             return null;
         }
-        
+
         int value = carry;
         if (link1 != null) {
             value += link1.data;
         }
-        
+
         if (link2 != null) {
             value += link2.data;
         }
-        
+
         int result = value % 10;
         Link link = new Link(result);
-        
+
         if (link1 != null || link2 != null) {
-            link.nextlink = addNumbers(link1 == null ? null : link1.nextlink, link2 == null ? null : link2.nextlink, value > 10 ? 1 : 0);
+            link.nextlink = addNumbers(link1 == null ? null : link1.nextlink, link2 == null ? null : link2.nextlink,
+                    value > 10 ? 1 : 0);
         }
-        
+
         return link;
     }
 
     public static int findSize(Link node) {
         int length = 0;
-        while(node != null) {
+        while (node != null) {
             length++;
             node = node.nextlink;
         }
-        
+
         return length;
     }
 
     private static Link reverseLink(Link node) {
         Link head = null;
 
-        while(node != null) {
+        while (node != null) {
             Link link = new Link(node.data);
             link.nextlink = head;
             head = link;
