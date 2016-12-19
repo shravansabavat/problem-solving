@@ -3,18 +3,18 @@ package uottawa.winter.problems.binarytree;
 import java.util.Stack;
 
 public class StackForMaxElement {
-    
+
     public static void main(String[] args) {
         MyStack elements = new MyStack();
         elements.push(10);
         elements.push(2);
         elements.push(5);
         elements.push(50);
-        
+
         System.out.println(elements.pop());
     }
-    
-    
+
+
     public static class MyStack extends Stack {
         public Object push(Object newValue) {
             if (this.isEmpty() == false) {
@@ -30,7 +30,7 @@ public class StackForMaxElement {
             } else {
                 super.push(newValue);
             }
-            
+
             return newValue;
         }
     }

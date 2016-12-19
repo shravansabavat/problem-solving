@@ -317,7 +317,7 @@ public class BinarySearchTree {
     private static boolean checkIfPathExists(Node node, char[] charArray, int index) {
         boolean checkIfPathExists = false;
         if (node == null) {
-            checkIfPathExists = index == charArray.length;
+            checkIfPathExists = (index == charArray.length);
         } else {
             Integer i = Integer.parseInt(String.valueOf(charArray[index]));
             if (node.data == i) {
