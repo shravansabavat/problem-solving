@@ -5,7 +5,7 @@ import java.util.Stack;
 public class CheckBalancedParenthesis {
     
     public static void main(String[] args) {
-        String expression = "()()()";
+        String expression = "(((()()())))";
         
         System.out.println(isValid(expression));
     }
@@ -23,8 +23,7 @@ public class CheckBalancedParenthesis {
                 if (myStack.isEmpty()) {
                     return false;
                 }
-                char last = myStack.peek();
-                if (last == '(' && current == ')') {
+                if (myStack.peek() == '(') {
                     myStack.pop();
                 } else {
                     return false;

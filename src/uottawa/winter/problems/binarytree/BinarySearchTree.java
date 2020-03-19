@@ -120,8 +120,7 @@ public class BinarySearchTree {
 
         // if key is same as root's key, then This is the node
         // to be deleted
-        else
-        {
+        else {
             // node with only one child or no child
             if (root.left == null)
                 return root.right;

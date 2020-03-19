@@ -6,8 +6,8 @@ import java.util.HashSet;
 public class RobotInGrid {
     private static boolean[][] maze = {
         {true,true,false,false},
-        {false,true,false,false},
-        {false,true,false,false},
+        {false,true,true,true},
+        {false,true,false,true},
         {false,true,true,true}};
 
     public static void main(String[] args) {
@@ -26,28 +26,28 @@ public class RobotInGrid {
         ArrayList<Point> paths = new ArrayList<Point>();
         HashSet<Point> failedPaths = new HashSet<Point>();
 
-        if (getPath(maze, maze.length - 1, maze[0].length - 1, paths, failedPaths)) {
+        if (getPath(maze, 0, 0, paths, failedPaths)) {
             return paths;
         }
         return null;
     }
 
     private static boolean getPath(boolean[][] maze2, int row, int col, ArrayList<Point> paths, HashSet<Point> failedPaths) {
-        if (row < 0 || col < 0 || !maze[row][col]) {
+        if (row < 0 || col < 0 || row >= maze2.length || col > maze2[0].length  || !maze[row][col]) {
             return false;
         }
         Point point = new Point(row, col);
         if (failedPaths.contains(point)) {
             return false;
         }
-        boolean isOrigin = (row == 0 && col == 0);
-        if (isOrigin || getPath(maze2, row - 1, col, paths, failedPaths) || getPath(maze2, row, col - 1, paths, failedPaths)) {
+        boolean isDestination = (row == maze2.length - 1 && col == maze2[0].length - 1);
+        if (isDestination || getPath(maze2, row + 1, col, paths, failedPaths) || getPath(maze2, row, col + 1, paths, failedPaths)) {
             paths.add(point);
             return true;
+        } else {
+            failedPaths.add(point);
+            return false;
         }
-
-        failedPaths.add(point);
-        return false;
     }
 
     public static class Point {

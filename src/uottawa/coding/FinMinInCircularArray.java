@@ -4,8 +4,6 @@ public class FinMinInCircularArray {
     public static int[] arr = {38, 40, 1, 2, 6, 13, 20, 23, 36};
 
     public static void main(String[] args) {
-
-
         int index = findMin();
         System.out.println(arr[index]);
     }

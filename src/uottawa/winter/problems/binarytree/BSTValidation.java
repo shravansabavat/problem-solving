@@ -68,7 +68,6 @@ public class BSTValidation {
 	}
 
 	private static void inOrderTraversal(Node root) {
-
 		if(root == null){
 			return;
 		}else{
@@ -76,7 +75,6 @@ public class BSTValidation {
 			sortedArray[count++] = root.data;
 			inOrderTraversal(root.right);
 		}
-
 	}
 
 	public static boolean isValidBSTWithOutSpace(Node root) {

@@ -14,8 +14,6 @@ public class PeaksAnValleys {
                 swap(index, maxIndex);
             }
         }
-        
-        
         System.out.println(Arrays.toString(arr));
     }
 

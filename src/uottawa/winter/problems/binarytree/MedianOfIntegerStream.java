@@ -36,11 +36,9 @@ public class MedianOfIntegerStream {
 
     public Double getMedian() {
         if (numOfElements % 2 != 0) {
-            System.out.println(maxHeap.peek());
             return new Double(maxHeap.peek());
         } else
-            System.out.println(minHeap.peek());
-        return (maxHeap.peek() + minHeap.peek()) / 2.0;
+            return (maxHeap.peek() + minHeap.peek()) / 2.0;
     }
 
     private class MaxHeapComparator implements Comparator<Integer> {
@@ -54,7 +52,7 @@ public class MedianOfIntegerStream {
         MedianOfIntegerStream streamMedian = new MedianOfIntegerStream();
 
         streamMedian.addNumberToStream(1);
-        System.out.println(streamMedian.getMedian()); // should be 1
+      //  System.out.println(streamMedian.getMedian()); // should be 1
 
         streamMedian.addNumberToStream(2);
         streamMedian.addNumberToStream(3);
@@ -64,7 +62,10 @@ public class MedianOfIntegerStream {
         streamMedian.addNumberToStream(7);
         streamMedian.addNumberToStream(8);
         streamMedian.addNumberToStream(9);
+        System.out.println(streamMedian.getMedian());
         streamMedian.addNumberToStream(10);
+        System.out.println(streamMedian.getMedian());
+        streamMedian.addNumberToStream(11);// should be 5
         System.out.println(streamMedian.getMedian()); // should be 5
 
     }

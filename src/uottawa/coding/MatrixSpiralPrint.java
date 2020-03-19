@@ -57,7 +57,7 @@ public class MatrixSpiralPrint {
                 System.out.print(arr[row][index] + " ");
             }
             // last column
-            row = layer - 1;
+            row = layer;
             col = n - layer - 1;
             for (int index = row; index <= n - layer - 1; index++) {
                 System.out.print(arr[index][col] + " ");

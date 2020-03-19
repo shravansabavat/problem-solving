@@ -15,9 +15,7 @@ public class MinCuts {
                 break;
             }
         }
-
         return min;
-
     }
 
     static void cutSticks(int[] array) {

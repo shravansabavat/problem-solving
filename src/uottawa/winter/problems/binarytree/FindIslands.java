@@ -1,19 +1,22 @@
 package uottawa.winter.problems.binarytree;
 
 public class FindIslands {
-	
-	public static int shapeStarted = -1;
-	public static int shapes = 0;
-	
 	public static void main(String[] args) {
+//		int[][] arr = new int[][]{
+//				  { 1, 0, 1, 0, 0, 0, 0, 1, 1, 0 },
+//				  { 1, 0, 0, 0, 1, 0, 0, 1, 0, 0 },
+//				  { 0, 1, 0, 0, 0, 1, 1, 0, 0, 1 },
+//				  { 0, 0, 0, 0, 0, 0, 0, 1, 0, 1 },
+//				  { 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 }
+//				};
+
 		int[][] arr = new int[][]{
-				  { 1, 0, 1, 0, 0, 0, 0, 1, 1, 0 },
-				  { 1, 0, 0, 0, 1, 0, 0, 1, 0, 0 },
-				  { 0, 1, 0, 0, 0, 1, 1, 0, 0, 1 },
-				  { 0, 0, 0, 0, 0, 0, 0, 1, 0, 1 },
-				  { 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 }
-				};
-		
+				{ 1, 1, 1, 1, 0 },
+				{ 1, 1, 0, 1, 0 },
+				{ 1, 1, 0, 0, 0 },
+				{ 0, 0, 0, 0, 0 }
+		};
+
 		System.out.println(GetNumber(arr));
 		
 	}
@@ -38,10 +41,10 @@ public class FindIslands {
         	findShapes(arr, x + 1, y);
         	findShapes(arr, x, y - 1);
         	findShapes(arr, x, y + 1);
-        	findShapes(arr, x - 1, y - 1);
-        	findShapes(arr, x - 1, y + 1);
-        	findShapes(arr, x + 1, y - 1);
-        	findShapes(arr, x + 1, y + 1);
+//        	findShapes(arr, x - 1, y - 1);
+//        	findShapes(arr, x - 1, y + 1);
+//        	findShapes(arr, x + 1, y - 1);
+//        	findShapes(arr, x + 1, y + 1);
             return true;
         }
         return false;
