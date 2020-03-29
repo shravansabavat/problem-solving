@@ -211,11 +211,7 @@ public class BinarySearchTree {
 
     public static int findDistance(Node node, int value) {
         if (node == null) {
-            return -1;
-        }
-
-        if (value < 0) {
-            return -1;
+            return 0;
         }
 
         if (node.getData() == value) {

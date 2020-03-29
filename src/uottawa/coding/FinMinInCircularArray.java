@@ -11,10 +11,9 @@ public class FinMinInCircularArray {
     public static int findMin() {
         int low = 0;
         int high = arr.length - 1;
-        int mid = (low + high)/2;
 
         while(low <= high) {
-            mid = (low + high)/2;
+            int mid = (low + high)/2;
             
             int midValue = arr[mid];
             int midLeft = arr[mid - 1];

@@ -109,7 +109,6 @@ public class MyLinkedList {
 	} 
 
 	public Link reverseWithRecursion(Link list){
-
 		if(list == null){
 			return null;
 		} 
@@ -121,26 +120,6 @@ public class MyLinkedList {
 		Link reverLink = reverseWithRecursion(seconNum);
 		seconNum.nextlink = list;
 		return reverLink;
-	}
-
-	public Link reverse(Link link) {
-		if (link == null) {
-			return null;
-		}
-
-		if (link.nextlink == null) {
-			return link;
-		}
-
-		Link secondLink = link.nextlink;
-
-		link.nextlink = null;
-
-		Link reverseRest = reverse(secondLink);
-
-		secondLink.nextlink = link;
-
-		return reverseRest;
 	}
 
 	public Link reverseWithOutRecursion(Link head) {
