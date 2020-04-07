@@ -12,7 +12,7 @@ public class MedianOfIntegerStream {
 
     public MedianOfIntegerStream() {
         minHeap = new PriorityQueue<Integer>();
-        maxHeap = new PriorityQueue<Integer>(10, new MaxHeapComparator());
+        maxHeap = new PriorityQueue<Integer>(10, (o1, o2) -> o2 - o1);
         numOfElements = 0;
     }
 
