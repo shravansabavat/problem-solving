@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Day7GroupAnagrams {
+public class Day6GroupAnagrams {
     public static List<List<String>> groupAnagrams(String[] strs) {
         Map<Integer, List<String>> anagramTracker = new HashMap<>();
         for (String str : strs) {
